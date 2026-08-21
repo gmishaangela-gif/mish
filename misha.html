@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi, I'm Misha!</title>
+    <style>
+        /* 1. Magical Ambient Floating Background */
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 30px 20px;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated decorative glowing blur orbs behind the card */
+        body::before, body::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+            opacity: 0.4;
+            animation: floatGlow 10s ease-in-out infinite alternate;
+        }
+        body::before {
+            background: #ec4899;
+            top: 15%;
+            left: 10%;
+        }
+        body::after {
+            background: #a855f7;
+            bottom: 15%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(30px) scale(1.2); }
+        }
+
+        /* 2. Next-Gen Cyber-Glass Card */
+        .main-card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 45px 30px;
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            max-width: 440px;
+            width: 100%;
+            z-index: 1;
+            transform: perspective(1000px) rotateX(2deg);
+            transition: transform 0.5s ease;
+        }
+
+        .main-card:hover {
+            transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+        }
+
+        /* 3. Typography Styles */
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 0 12px 0;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .bio-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin: 6px 0;
+            padding: 0 10px;
+        }
+
+        .intro-text-2 {
+            font-weight: 700;
+            color: #f472b6;
+            margin-bottom: 35px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 13px;
+            animation: textPulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textPulse {
+            0% { opacity: 0.8; text-shadow: 0 0 5px rgba(244,114,182,0); }
+            100% { opacity: 1; text-shadow: 0 0 15px rgba(244,114,182,0.6); }
+        }
+
+        /* 4. Overlapping Cosmic Avatar Ring */
+        .avatar-container {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 25px auto;
+            border-radius: 50%;
+            position: relative;
+            background: linear-gradient(45deg, #ec4899, #8b5cf6, #06b6d4);
+            padding: 3px;
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .avatar-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #1e293b;
+        }
+
+        .avatar-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 5. Custom Themed Sub-Containers */
+        .info-group {
+            background: rgba(15, 23, 42, 0.4);
+            border-radius: 24px;
+            padding: 8px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        /* Distinct glow edges per box on hover */
+        .box-hobbies:hover { border-color: rgba(244, 114, 182, 0.4); box-shadow: 0 0 20px rgba(244,114,182,0.15); }
+        .box-favorites:hover { border-color: rgba(52, 211, 153, 0.4); box-shadow: 0 0 20px rgba(52,211,153,0.15); }
+        .box-places:hover { border-color: rgba(56, 189, 248, 0.4); box-shadow: 0 0 20px rgba(56,189,248,0.15); }
+
+        /* 6. Creative Header Ribbons */
+        .group-header {
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 10px 20px;
+            border-radius: 16px;
+            margin: 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .box-hobbies .group-header { background: linear-gradient(90deg, #ec4899, #be185d); }
+        .box-favorites .group-header { background: linear-gradient(90deg, #10b981, #047857); }
+        .box-places .group-header { background: linear-gradient(90deg, #0ea5e9, #0369a1); }
+
+        /* 7. High-End Micro-Interaction Lists */
+        .bullet-stack {
+            list-style: none;
+            padding: 12px 14px;
+            margin: 0;
+            text-align: left;
+        }
+
+        .bullet-stack li {
+            font-size: 14.5px;
+            font-weight: 500;
+            padding: 10px 14px;
+            color: #e2e8f0;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 2px;
+        }
+        .bullet-stack li:last-child { margin-bottom: 0; }
+
+        /* Dynamic row highlight styling */
+        .box-hobbies .bullet-stack li:hover { background: rgba(244, 114, 182, 0.1); color: #f472b6; transform: translateX(6px); }
+        .box-favorites .bullet-stack li:hover { background: rgba(52, 211, 153, 0.1); color: #34d399; transform: translateX(6px); }
+        .box-places .bullet-stack li:hover { background: rgba(56, 189, 248, 0.1); color: #38bdf8; transform: translateX(6px); }
+
+        /* Multi-Colored Custom Bullet Points */
+        .bullet-stack li::before {
+            content: "✦";
+            font-size: 13px;
+            display: inline-block;
+            width: 22px;
+            transition: transform 0.3s ease;
+        }
+        .box-hobbies .bullet-stack li::before { color: #f472b6; }
+        .box-favorites .bullet-stack li::before { color: #34d399; }
+        .box-places .bullet-stack li::before { color: #38bdf8; }
+
+        /* Spinning bullet effect on hover */
+        .bullet-stack li:hover::before {
+            transform: rotate(180deg) scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-card">
+        
+        <!-- Cosmic Gradient Border Picture Frame -->
+        <div class="avatar-container">
+            <div class="avatar-inner">
+                <!-- Keep your selfie file named 'misha.jpg' in your folder workspace -->
+                <img src="me.jpg" alt="Misha's Profile">
+            </div>
+        </div>
+
+        <!-- Introduction Texts -->
+        <h1>Hi, I'm Misha!</h1>
+        <p class="bio-text">Hi! I'm Misha, a student who loves having fun with my friends and family.</p>
+        <p class="intro-text-2">Let me show you the things I love.</p>
+
+        <!-- Box 1: My Hobbies (Pink Neon Aesthetic) -->
+        <div class="info-group box-hobbies">
+            <h2 class="group-header">My Hobbies</h2>
+            <ul class="bullet-stack">
+                <li>🍳 cooking</li>
+                <li>🎮 playing games</li>
+                <li>✍🏻 writing stories</li>
+            </ul>
+        </div>
+
+        <!-- Box 2: My Favorites (Mint Green Aesthetic) -->
+        <div class="info-group box-favorites">
+            <h2 class="group-header">My Favorites</h2>
+            <ul class="bullet-stack">
+                <li>🍝 foods</li>
+                <li>🍵 matcha</li>
+                <li>🎶 music</li>
+            </ul>
+        </div>
+
+        <!-- Box 3: My Favorite Places (Sky Blue Aesthetic) -->
+        <div class="info-group box-places">
+            <h2 class="group-header">My Favorite Places</h2>
+            <ul class="bullet-stack">
+                <li>🏠 home</li>
+                <li>🏫 school</li>
+                <li>🏢 mall</li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>
